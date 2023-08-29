@@ -16,6 +16,7 @@
         i3status
         brightnessctl
         wob
+        git
       ];
     };
   };
