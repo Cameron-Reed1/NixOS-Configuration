@@ -16,13 +16,13 @@
         i3status
         brightnessctl
         wob
-        git
       ];
     };
   };
 
   environment.systemPackages = with pkgs; [
     vim
+    git
     wget
     kitty
     ranger
