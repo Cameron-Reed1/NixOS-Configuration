@@ -2,8 +2,8 @@
 
 {
   services.xserver = {
-    # Enable X11. GDM won't launch without it
-    enable = true;
+    # Disable X11. Don't need it with tuigreet and sway
+    enable = false;
 
     layout = "us";
     libinput = {
@@ -11,10 +11,6 @@
         tapping = true;
       };
     };
-
-    # Enable GNOME and its display manager, GDM
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
 
     # I don't need xterm
     excludePackages = [ pkgs.xterm ];

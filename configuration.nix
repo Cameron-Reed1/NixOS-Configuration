@@ -17,6 +17,9 @@
     ./xserver.nix
     ./printing.nix
     ./sound.nix
+    ./power.nix
+    ./login-manager.nix
+    ./desktop.nix
     ./packages.nix
 
     # User configuration

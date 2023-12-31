@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   boot.loader = {
@@ -9,9 +9,11 @@
       editor = false;
       configurationLimit = 5;
       extraInstallCommands = ''
-        sed -i 's/^version Generation \([0-9]\+\).*$/version Generation \1/' /boot/loader/entries/nixos-generation-*
-        sed -i 's/^default .*$/default 00-arch.conf/' /boot/loader/loader.conf
+        ${pkgs.gnused}/bin/sed -i 's/^version Generation \([0-9]\+\).*$/version Generation \1/' /boot/loader/entries/nixos-generation-*
+        ${pkgs.gnused}/bin/sed -i 's/^default .*$/default 00-arch.conf/' /boot/loader/loader.conf
       '';
     };
   };
+
+  boot.kernelParams = [ "quiet" "splash" ];
 }
