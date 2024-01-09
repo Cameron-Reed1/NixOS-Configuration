@@ -9,7 +9,7 @@
 
 
   outputs = { self, nixpkgs }@inputs: 
-  with
+  let
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
