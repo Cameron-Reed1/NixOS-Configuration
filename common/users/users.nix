@@ -6,6 +6,6 @@
   };
 
   imports = [
-    ./cameron.nix
+    ./cameron/default.nix
   ];
 }

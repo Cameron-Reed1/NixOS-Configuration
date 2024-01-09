@@ -4,7 +4,7 @@
 
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11"
+    nixpkgs.url = "nixpkgs/nixos-23.11";
   };
 
 
