@@ -27,12 +27,10 @@ in {
         packages = (with pkgs; [
           direnv
           nix-direnv
+        ] ++ (lib.optionals (config.desktop != "") [
           bibata-cursors
           bibata-cursors-translucent
-        ]) ++ (with pkgs.gnomeExtensions; [
-          gsconnect
-          dock-from-dash
-        ]);
+        ]));
       };
     };
   };

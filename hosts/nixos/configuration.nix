@@ -1,16 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
-{
+let common_dir=../../common;
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    # User configuration
-    ../../common/users/users.nix
+    (common_dir + /options.nix)
+
+    (common_dir + /bootloader/systemd-boot.nix)
+    (common_dir + /users/users.nix)
+    (common_dir + /desktop/sway.nix)
   ];
   
 
@@ -26,21 +26,7 @@
 
 
 
-  # Bootloader Configuration
-
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-
-    systemd-boot = {
-      enable = true;
-      editor = false;
-      configurationLimit = 5;
-      extraInstallCommands = ''
-        ${pkgs.gnused}/bin/sed -i 's/^version Generation \([0-9]\+\).*$/version Generation \1/' /boot/loader/entries/nixos-generation-*
-        ${pkgs.gnused}/bin/sed -i 's/^default .*$/default 00-arch.conf/' /boot/loader/loader.conf
-      '';
-    };
-  };
+  # Kernel Param Configuration
 
   boot.kernelParams = [ "quiet" "splash" ];
 
@@ -100,17 +86,21 @@
 
   programs = {
     zsh.enable = true;
-    vim.defaultEditor = true;
+    neovim = {
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
   };
 
   environment.systemPackages = (with pkgs; [
-    vim
-    neovim
     git
+    curl
     wget
     kitty
     ranger
     lf
+    tmux
     firefox
 
     greetd.tuigreet
@@ -118,7 +108,6 @@
 
   environment.shells = with pkgs; [ bash zsh ];
 
-  xdg.portal.wlr.enable = true;
   nixpkgs.config.allowUnfree = true;
 
 
@@ -192,26 +181,6 @@
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
         user = "greeter";
       };
-    };
-  };
-
-
-
-  # Desktop Environment Configuration
-
-  programs = {
-    sway = {
-      enable = true;
-
-      extraPackages = with pkgs; [
-        swaylock
-        swayidle
-        dmenu
-        wmenu
-        i3status
-        brightnessctl
-        wob
-      ];
     };
   };
 
