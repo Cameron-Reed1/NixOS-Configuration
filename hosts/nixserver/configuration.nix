@@ -55,16 +55,12 @@ in {
 
   programs = {
     zsh.enable = true;
-    neovim = {
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    neovim
     git
     curl
     wget

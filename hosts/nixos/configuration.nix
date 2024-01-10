@@ -86,14 +86,10 @@ in {
 
   programs = {
     zsh.enable = true;
-    neovim = {
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
   };
 
   environment.systemPackages = (with pkgs; [
+    neovim
     git
     curl
     wget
