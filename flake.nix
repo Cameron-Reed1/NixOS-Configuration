@@ -1,5 +1,4 @@
 {
-
   description = "My nixos config as a flake";
 
 
@@ -8,7 +7,7 @@
   };
 
 
-  outputs = { self, nixpkgs }@inputs: 
+  outputs = { self, nixpkgs }@inputs:
   let
     lib = nixpkgs.lib;
   in {
@@ -18,11 +17,10 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
-          ./configuration.nix
+          ./hosts/nixos/configuration.nix
         ];
       };
 
     };
   };
-
 }

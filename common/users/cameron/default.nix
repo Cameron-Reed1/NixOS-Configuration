@@ -5,7 +5,7 @@ with lib; let
 in {
   options.user.cameron = {
     enable = mkEnableOption "user cameron";
-  }
+  };
 
   config = mkIf cfg.enable {
     users = {
@@ -17,7 +17,8 @@ in {
 
         uid = 1000;
         group = "cameron";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "wheel" ] ++
+          (lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]);
 
         home = "/home/cameron-nix";
         createHome = true;
