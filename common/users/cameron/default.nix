@@ -27,7 +27,7 @@ in {
         packages = (with pkgs; [
           direnv
           nix-direnv
-        ] ++ (lib.optionals (config.desktop != "") [
+        ] ++ (lib.optionals ((builtins.length config.desktop) != 0) [
           bibata-cursors
           bibata-cursors-translucent
         ]));

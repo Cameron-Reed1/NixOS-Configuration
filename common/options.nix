@@ -8,8 +8,8 @@ with lib; {
     };
 
     desktop = mkOption {
-      default = "";
-      type = types.str;
+      default = [];
+      type = types.listOf types.str;
     };
   };
 }

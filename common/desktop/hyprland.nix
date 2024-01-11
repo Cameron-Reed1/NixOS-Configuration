@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  desktop = "hyprland";
+  desktop = [ "hyprland" ];
 
   programs.hyprland.enable = true;
 

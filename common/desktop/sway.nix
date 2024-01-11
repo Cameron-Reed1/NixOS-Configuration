@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  desktop = "sway";
+  desktop = [ "sway" ];
 
   programs.sway = {
     enable = true;
