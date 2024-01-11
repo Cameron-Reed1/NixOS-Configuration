@@ -10,7 +10,7 @@ in {
 
     (common_dir + /bootloader/systemd-boot.nix)
     (common_dir + /users/users.nix)
-    (common_dir + /display-manager/tuigreet.nix)
+    (common_dir + /login-manager/tuigreet.nix)
     (common_dir + /desktop/sway.nix)
   ];
   
