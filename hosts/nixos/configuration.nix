@@ -10,6 +10,7 @@ in {
 
     (common_dir + /bootloader/systemd-boot.nix)
     (common_dir + /users/users.nix)
+    (common_dir + /display-manager/tuigreet.nix)
     (common_dir + /desktop/sway.nix)
   ];
   
@@ -98,8 +99,6 @@ in {
     lf
     tmux
     firefox
-
-    greetd.tuigreet
   ]);
 
   environment.shells = with pkgs; [ bash zsh ];
@@ -164,20 +163,6 @@ in {
     };
 
     excludePackages = [ pkgs.xterm ];
-  };
-
-
-
-  # Login Manager Configuration
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
-      };
-    };
   };
 
 

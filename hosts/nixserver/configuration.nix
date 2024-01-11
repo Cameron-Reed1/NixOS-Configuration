@@ -14,6 +14,7 @@ in {
 
       (common_dir + /bootloader/grub.nix)
       (common_dir + /users/users.nix)
+      (common_dir + /login-manager/tuigreet.nix)
 
       ./minecraft.nix
       ./frp.nix
