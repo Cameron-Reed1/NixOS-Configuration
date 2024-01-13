@@ -15,6 +15,7 @@ in {
       (common_dir + /bootloader/grub.nix)
       (common_dir + /users/users.nix)
       (common_dir + /login-manager/tuigreet.nix)
+      (common_dir + /desktop/hyprland.nix)
 
       ./minecraft.nix
       ./frp.nix
@@ -73,6 +74,9 @@ in {
     kitty
     makemkv
   ];
+
+  # Also temporary
+  nixpkgs.config.allowUnfree = true;
   
   environment.shells = with pkgs; [ bash zsh ];
 
@@ -87,6 +91,8 @@ in {
       PermitRootLogin = "no";
     };
   };
+
+  # Enable Jellyfin
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
