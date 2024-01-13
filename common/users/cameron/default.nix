@@ -18,7 +18,8 @@ in {
         uid = 1000;
         group = "cameron";
         extraGroups = [ "wheel" ] ++
-          (lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]);
+          (lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]) ++
+          (lib.optionals (config.networking.hostName == "nixos") [ "dialout" ]);
 
         home = "/home/cameron-nix";
         createHome = true;
