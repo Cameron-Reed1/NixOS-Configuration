@@ -14,11 +14,9 @@ in {
 
       (common_dir + /bootloader/grub.nix)
       (common_dir + /users/users.nix)
-      (common_dir + /login-manager/tuigreet.nix)
-      (common_dir + /desktop/hyprland.nix)
 
-      ./minecraft.nix
-      ./frp.nix
+      # ./minecraft.nix
+      # ./frp.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -71,7 +69,6 @@ in {
     tmux
 
     # Temp
-    kitty
     makemkv
   ];
 
@@ -93,6 +90,7 @@ in {
   };
 
   # Enable Jellyfin
+  services.jellyfin.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
