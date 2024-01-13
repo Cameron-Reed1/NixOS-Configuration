@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let common_dir=../../common;
 in {
@@ -171,6 +171,11 @@ in {
   # User Configuration
 
   user.cameron.enable = true;
+  # Default user settings overrides
+  users.users.cameron = {
+    home = lib.mkForce "/home/cameron-nix";
+    extraGroups = [ "dialout" ];
+  };
 
 
 

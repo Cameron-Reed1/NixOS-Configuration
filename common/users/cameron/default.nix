@@ -18,10 +18,9 @@ in {
         uid = 1000;
         group = "cameron";
         extraGroups = [ "wheel" ] ++
-          (lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]) ++
-          (lib.optionals (config.networking.hostName == "nixos") [ "dialout" ]);
+          (lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]);
 
-        home = "/home/cameron-nix";
+        home = "/home/cameron";
         createHome = true;
 
         shell = pkgs.zsh;
