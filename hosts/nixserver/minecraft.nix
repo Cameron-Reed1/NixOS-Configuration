@@ -1,6 +1,6 @@
-{ pkgs, services, ... }:
+{ pkgs, services, common_dir, ... }:
 
-let forge = pkgs.callPackage ./custom-packages/forge-installer/default.nix {};
+let forge = pkgs.callPackage (common_dir + /custom-packages/forge-installer/forge.nix) {};
 
 in {
   services.minecraft-server = {
