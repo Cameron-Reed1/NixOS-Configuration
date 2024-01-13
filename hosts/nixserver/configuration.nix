@@ -24,7 +24,7 @@ in {
 
   
   # Use the GRUB 2 boot loader with legacy boot
-  grub.device = "/dev/disk/by-uuid/dfdccedd-4336-4449-bdc9-5cc4533cfbdd";
+  grub.device = "/dev/sda";
 
 
   # USB WiFi driver kernel module
@@ -68,6 +68,10 @@ in {
     ranger
     lf
     tmux
+
+    # Temp
+    kitty
+    makemkv
   ];
   
   environment.shells = with pkgs; [ bash zsh ];
@@ -93,7 +97,7 @@ in {
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

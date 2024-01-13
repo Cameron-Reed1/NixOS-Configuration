@@ -24,9 +24,8 @@ in {
 
         configurationLimit = 25;
         default = "saved";
-        useOSProber = true;
         memtest86.enable = true;
-      }
+      };
     }
 
     (mkIf (cfg.device == "") {
