@@ -28,7 +28,7 @@ in {
 
   # USB WiFi driver kernel module
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821au ];
-  boot.kernelModules = ["8821au"];
+  boot.kernelModules = [ "8821au" "sg" ];
 
 
   networking.hostName = "nixserver";
