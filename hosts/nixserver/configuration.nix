@@ -90,7 +90,10 @@ in {
   };
 
   # Enable Jellyfin
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
