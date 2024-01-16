@@ -1,7 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, common_dir, ... }:
 
-let common_dir=../../common;
-in {
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -132,6 +131,14 @@ in {
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+  };
+
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    extraUpFlags = [
+      "--login-server=https://scale.cam123.dev:443"
+    ];
   };
 
 

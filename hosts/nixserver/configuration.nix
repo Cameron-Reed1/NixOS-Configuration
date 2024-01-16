@@ -34,6 +34,14 @@ in {
   networking.hostName = "nixserver";
   networking.networkmanager.enable = true;
 
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    extraUpFlags = [
+      "--login-server=https://scale.cam123.dev:443"
+    ];
+  };
+
 
   # Set your time zone.
   time.timeZone = "America/Denver";
