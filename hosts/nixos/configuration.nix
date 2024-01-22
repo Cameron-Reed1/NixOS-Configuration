@@ -117,6 +117,10 @@
     };
 
     firewall = {
+      allowedTCPPorts = [
+        8080
+      ];
+
       allowedTCPPortRanges = [
         # GSConnect
         #{ from = 1714; to = 1764; }
