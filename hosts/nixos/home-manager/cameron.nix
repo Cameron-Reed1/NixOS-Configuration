@@ -1,7 +1,6 @@
-{ lib, pkgs, osConfig, ... }:
+{ lib, pkgs, config, osConfig, common_dir, ... }:
 
-let common_dir = ../../../common;
-in {
+{
   imports = [
     (common_dir + /users/cameron/home.nix)
   ];

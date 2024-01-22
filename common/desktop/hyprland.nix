@@ -15,4 +15,6 @@
     swaylock
     swayidle
   ]);
+
+  services.xserver.displayManager.sessionPackages = [ config.programs.hyprland.finalPackage ];
 }

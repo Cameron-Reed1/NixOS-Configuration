@@ -23,7 +23,7 @@
         };
 
         eDP-1 = {
-          scale = 1.5;
+          scale = "1.5";
         };
       };
 
@@ -71,7 +71,11 @@
           colors = {
             statusline = "#ffffff";
             background = "#323232";
-            inactiveWorkspace = "#32323200 #32323200 #5c5c5c";
+            inactiveWorkspace = {
+              background = "#32323200";
+              border = "#32323200";
+              text = "#5c5c5c";
+            };
           };
         }
       ];

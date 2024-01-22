@@ -22,11 +22,11 @@
       "$menu" = "dmenu_path | wmenu -p 'Run:' -l 10 | xargs hyprctl dispatch exec";
       
 
-      exec-once = startup;
+      exec-once = "${startup}";
       
       monitor = [
-        ",preferred,auto,1"
-        "eDP-1,preferred,0x0,1.5"
+        ",preferred,auto,auto"
+        "desc:BOE 0x095F,preferred,0x0,1.566667"
       ];
 
       env = [

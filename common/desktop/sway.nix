@@ -18,4 +18,6 @@
   };
 
   xdg.portal.wlr.enable = true;
+
+  services.xserver.displayManager.sessionPackages = [ config.programs.sway.package ];
 }

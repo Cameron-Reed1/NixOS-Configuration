@@ -1,4 +1,4 @@
-{ pkgs, lib, osConfig, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 {
   imports = [
