@@ -47,28 +47,6 @@
         };
       };
 
-      extraConfig = ''
-        for_window {
-            [shell="xwayland"] title_format "%title [XWayland]"
-            [shell="xwayland"] border normal 2
-            [window_role="pop-up"] floating enable
-            [window_role="bubble"] floating enable
-            [window_role="dialog"] floating enable
-            [window_type="dialog"] floating enable
-            [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
-            [class="Minecraft.*"] floating enable
-            [con_mark="caffeine"] inhibit_idle title_format "%title [Caffeinated]"
-        }
-
-        bindgesture swipe:3:left workspace next
-        bindgesture swipe:3:right workspace prev
-
-        bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ${WOBSOCK}
-        bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ${WOBSOCK}
-        bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1 && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print substr($2, 3, length($2))}' > ${WOBSOCK}
-        bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1 && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print substr($2, 3, length($2))}' > ${WOBSOCK}
-      '';
-
       keybindings = (
       let
         mod = config.wayland.windowManager.sway.config.modifier;
@@ -84,19 +62,44 @@
         "${mod}+Shift+Escape" = "exec ${pkgs.swaylock}/bin/swaylock -f && sleep 2 && systemctl suspend";
       });
 
-      bars.swaybar = {
-        position = "top";
-
-        statusCommand = "${pkgs.i3status}/bin/i3status";
-
-        colors = {
-          statusline = "#ffffff";
-          background = "#323232";
-          inactiveWorkspace = "#32323200 #32323200 #5c5c5c";
-        };
-      };
+      bars = [
+        {
+          position = "top";
+  
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+  
+          colors = {
+            statusline = "#ffffff";
+            background = "#323232";
+            inactiveWorkspace = "#32323200 #32323200 #5c5c5c";
+          };
+        }
+      ];
 
     }; # config
+
+    extraConfig = ''
+      for_window {
+          [shell="xwayland"] title_format "%title [XWayland]"
+          [shell="xwayland"] border normal 2
+          [window_role="pop-up"] floating enable
+          [window_role="bubble"] floating enable
+          [window_role="dialog"] floating enable
+          [window_type="dialog"] floating enable
+          [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
+          [class="Minecraft.*"] floating enable
+          [con_mark="caffeine"] inhibit_idle title_format "%title [Caffeinated]"
+      }
+
+      bindgesture swipe:3:left workspace next
+      bindgesture swipe:3:right workspace prev
+
+      bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ${WOBSOCK}
+      bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ${WOBSOCK}
+      bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1 && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print substr($2, 3, length($2))}' > ${WOBSOCK}
+      bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1 && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print substr($2, 3, length($2))}' > ${WOBSOCK}
+    '';
+
   };
   });
 }

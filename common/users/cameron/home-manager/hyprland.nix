@@ -1,7 +1,7 @@
 { pkgs, lib, osConfig, ... }:
 
 {
-  config = lib.mkIf (builtins.elem "hyprland" osConfig.desktops) (
+  config = lib.mkIf (builtins.elem "hyprland" osConfig.desktop) (
   let startup = pkgs.writeShellScript "startup.sh" ''
     hyprctl setcursor Bibata-Original-Classic 24
     waybar &
