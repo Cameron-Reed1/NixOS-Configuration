@@ -26,7 +26,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            # home-manager.users.cameron = import ./hosts/nixos/home-manager/cameron.nix;
+            home-manager.users.cameron = import ./hosts/nixos/home-manager/cameron.nix;
           }
         ];
       };
