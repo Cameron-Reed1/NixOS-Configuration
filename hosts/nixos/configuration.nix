@@ -106,6 +106,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Fonts
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
+
 
 
   # Networking Configuration

@@ -15,4 +15,8 @@
     swaylock
     swayidle
   ]);
+
+  fonts.packages = with pkgs; [
+    font-awesome # Waybar icons
+  ];
 }

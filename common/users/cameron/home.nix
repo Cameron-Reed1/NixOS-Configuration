@@ -6,6 +6,7 @@
     ./home-manager/hyprland.nix
     
     ./home-manager/swaylock.nix
+    ./home-manager/waybar.nix
   ];
 
   home.username = "cameron";
