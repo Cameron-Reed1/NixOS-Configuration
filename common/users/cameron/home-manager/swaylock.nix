@@ -7,7 +7,7 @@
     settings = {
       ignore-empty-password = true;
       color = "333333";
-      image = ./wallpapers/lake.jpg;
+      image = "${./wallpapers/lake.jpg}";
     };
   };
   };
