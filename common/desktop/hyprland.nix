@@ -14,6 +14,7 @@
     wmenu
     swaylock
     swayidle
+    hyprpaper
   ]);
 
   fonts.packages = with pkgs; [

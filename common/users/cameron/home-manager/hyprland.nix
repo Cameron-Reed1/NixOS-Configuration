@@ -5,6 +5,7 @@
   let startup = pkgs.writeShellScript "startup.sh" ''
     hyprctl setcursor Bibata-Original-Classic 24
     waybar &
+    hyprpaper &
 
     swayidle -w \
       timeout 270 'swaylock -f' \
