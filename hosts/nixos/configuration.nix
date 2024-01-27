@@ -100,6 +100,7 @@
     lf
     tmux
     firefox
+    pulsemixer
   ]);
 
   environment.shells = with pkgs; [ bash zsh ];

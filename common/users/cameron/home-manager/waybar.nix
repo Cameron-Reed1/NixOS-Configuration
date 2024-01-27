@@ -72,15 +72,16 @@
         };
 
         temperature = {
-          # thermal-zone = 2;
+          thermal-zone = 3;
           # hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
           critical-threshold = 80;
           # format-critical = "{temperatureC}°C {icon}";
           format = "{temperatureC}°C {icon}";
-          format-icons = ["" "" ""];
+          format-icons = ["" "" "" "" ""];
         };
 
         backlight = {
+          reverse-scrolling = true;
           format = "{percent}% {icon}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
@@ -112,6 +113,7 @@
 
         pulseaudio = {
           # scroll-step = 1; # %, can be a float
+          reverse-scrolling = true;
           format = "{volume}% {icon} {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
           format-bluetooth-muted = " {icon} {format_source}";
@@ -127,7 +129,7 @@
             car = "";
             default = ["" "" ""];
           };
-          on-click = "pavucontrol";
+          on-click = "pulsemixer";
         };
 
       };
