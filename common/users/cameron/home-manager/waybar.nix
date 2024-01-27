@@ -1,4 +1,4 @@
-{ pkgs, lib, osConfig, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 {
   config = lib.mkIf (builtins.elem "hyprland" osConfig.desktop || builtins.elem "sway" osConfig.desktop)
@@ -129,7 +129,7 @@
             car = "";
             default = ["" "" ""];
           };
-          on-click = "pulsemixer";
+          on-click = "${config.terminal} pulsemixer";
         };
 
       };

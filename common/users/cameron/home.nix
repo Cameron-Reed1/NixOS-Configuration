@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./home-manager/options.nix
+
     ./home-manager/sway.nix
     ./home-manager/hyprland.nix
     
