@@ -10,6 +10,8 @@
     ./home-manager/hyprpaper.nix
     ./home-manager/swaylock.nix
     ./home-manager/waybar.nix
+
+    ./home-manager/zsh.nix
   ];
 
   home.username = "cameron";
