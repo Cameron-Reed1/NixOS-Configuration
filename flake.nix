@@ -38,6 +38,13 @@
         specialArgs = { inherit common_dir; };
         modules = [
           ./hosts/nixserver/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.cameron = import ./hosts/nixserver/home-manager/cameron.nix;
+
+            home-manager.extraSpecialArgs = { inherit common_dir; };
+          }
         ];
       };
 
