@@ -25,7 +25,7 @@
       preview = true;
       drawbox = true;
       icons = true;
-      cursorpreviewfmt = "\033[7;90m";
+      cursorpreviewfmt = "\\033[7;90m";
     };
   };
 

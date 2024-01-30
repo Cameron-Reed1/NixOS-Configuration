@@ -8,10 +8,10 @@
     hyprpaper &
 
     swayidle -w \
-      timeout 270 'swaylock -f' \
-      timeout 300 'hyprctl dispatch dpms off' \
-      before-sleep 'swaylock -f; sleep 1' \
-      after-resume 'hyprctl dispatch dpms on' &
+      timeout 300 'swaylock -f' \
+      timeout 330 'hyprctl dispatch dpms off' \
+           resume 'hyprctl dispatch dpms on' \
+      before-sleep 'swaylock -f; sleep 1' &
   '';
   in { wayland.windowManager.hyprland = {
     enable = true;

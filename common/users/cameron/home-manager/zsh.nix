@@ -103,7 +103,7 @@ fi
 
 if command -v lf &> /dev/null; then
     lfcd() {
-        cd "$(command lf -print-last-lf "$@")"
+        cd "$(command lf -print-last-dir "$@")"
     }
 
     bindkey -s '^o' 'lfcd\n'
@@ -122,7 +122,7 @@ fi
 
       nv = "nvim";
       nvd = "nvim .";
-      nvc = "nvim -c \"edit \$MYVIMRC\"";
+      nvc = "nvim -c \"edit \\$MYVIMRC\"";
       nvp = "nvim ${config.home.homeDirectory}/projects";
 
       c = "clear";
