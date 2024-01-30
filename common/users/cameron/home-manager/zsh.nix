@@ -101,6 +101,15 @@ if command -v direnv &> /dev/null; then
 fi
 
 
+if command -v lf &> /dev/null; then
+    lfcd() {
+        cd "$(command lf -print-last-lf "$@")"
+    }
+
+    bindkey -s '^o' 'lfcd\n'
+fi
+
+
 if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh='kitty +kitten ssh'
     alias clear='printf "\033c"'

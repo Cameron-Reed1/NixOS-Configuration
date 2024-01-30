@@ -1,4 +1,4 @@
-{ lib, pkgs, config, osConfig, common_dir, ... }:
+{ lib, pkgs, inputs, config, osConfig, common_dir, ... }:
 
 {
   imports = [

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, osConfig, ... }:
+{ pkgs, lib, inputs, config, osConfig, ... }:
 
 {
   imports = [
@@ -12,8 +12,14 @@
     ./home-manager/waybar.nix
 
     ./home-manager/zsh.nix
+
+    ./home-manager/lf.nix
   ];
 
   home.username = "cameron";
   home.homeDirectory = osConfig.users.users.cameron.home;
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }

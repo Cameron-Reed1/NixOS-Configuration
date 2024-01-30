@@ -12,11 +12,17 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager-unstable.url = "github:nix-community/home-manager";
     home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+
+    lf-icons.url = "github:gokcehan/lf";
+    lf-icons.flake = false;
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable }:
-  let common_dir = ./common;
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, lf-icons }:
+  let
+    common_dir = ./common;
+    inputs = { inherit lf-icons; };
   in {
     nixosConfigurations = {
 
@@ -30,7 +36,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.cameron = import ./hosts/nixos/home-manager/cameron.nix;
 
-            home-manager.extraSpecialArgs = { inherit common_dir; };
+            home-manager.extraSpecialArgs = { inherit common_dir inputs; };
           }
         ];
       };
@@ -45,7 +51,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.cameron = import ./hosts/nixserver/home-manager/cameron.nix;
 
-            home-manager.extraSpecialArgs = { inherit common_dir; };
+            home-manager.extraSpecialArgs = { inherit common_dir inputs; };
           }
         ];
       };
