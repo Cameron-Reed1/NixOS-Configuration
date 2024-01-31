@@ -14,15 +14,20 @@
     home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
 
+    nvim-config.url = "git+https://gitea.cam123.dev/CameronReed/Neovim-Config";
+    nvim-config.flake = false;
+
+    nix-colors.url = "github:misterio77/nix-colors";
+
     lf-icons.url = "github:gokcehan/lf";
     lf-icons.flake = false;
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, lf-icons }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, nvim-config, nix-colors, lf-icons }:
   let
     common_dir = ./common;
-    inputs = { inherit lf-icons; };
+    inputs = { inherit common_dir nvim-config nix-colors lf-icons; };
   in {
     nixosConfigurations = {
 
@@ -36,7 +41,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.cameron = import ./hosts/nixos/home-manager/cameron.nix;
 
-            home-manager.extraSpecialArgs = { inherit common_dir inputs; };
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       };
@@ -51,7 +56,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.cameron = import ./hosts/nixserver/home-manager/cameron.nix;
 
-            home-manager.extraSpecialArgs = { inherit common_dir inputs; };
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       };

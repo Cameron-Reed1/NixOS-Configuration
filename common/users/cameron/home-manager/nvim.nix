@@ -1,8 +1,8 @@
-{ pkgs, lib, config, osConfig, ... }:
+{ pkgs, lib, config, osConfig, inputs, ... }:
 
 {
   xdg.configFile."nvim" = {
-    source = ./other-files/nvim;
+    source = inputs.nvim-config;
     recursive = true;
   };
 
