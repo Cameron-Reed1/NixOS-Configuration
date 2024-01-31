@@ -2,6 +2,8 @@
 
 {
   imports = [
+    inputs.nix-colors.homeManagerModules.default
+
     ./home-manager/options.nix
 
     ./home-manager/sway.nix
@@ -12,7 +14,7 @@
     ./home-manager/waybar.nix
 
     ./home-manager/zsh.nix
-
+    ./home-manager/nvim.nix
     ./home-manager/lf.nix
   ];
 

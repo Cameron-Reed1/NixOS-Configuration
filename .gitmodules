@@ -1,0 +1,3 @@
+[submodule "common/users/cameron/home-manager/other-files/nvim"]
+	path = common/users/cameron/home-manager/other-files/nvim
+	url = ssh://gitea@gitea.cam123.dev:9024/CameronReed/Neovim-Config.git

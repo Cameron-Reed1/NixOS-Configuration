@@ -6,9 +6,9 @@
 
     target = ".config/hypr/hyprpaper.conf";
     text = ''
-preload = ${./wallpapers/lake.jpg}
+preload = ${./other-files/wallpapers/lake.jpg}
 
-wallpaper = ,${./wallpapers/lake.jpg}
+wallpaper = ,${./other-files/wallpapers/lake.jpg}
 
 splash = false
     '';

@@ -96,11 +96,11 @@
     curl
     wget
     kitty
-    ranger
     lf
     tmux
     firefox
     pulsemixer
+    gcc
   ]);
 
   environment.shells = with pkgs; [ bash zsh ];

@@ -19,7 +19,7 @@
 
       output = {
         "*" = {
-          bg = "~/Pictures/background.jpg fill";
+          bg = "${./other-files/wallpapers/lake.jpg} fill";
         };
 
         eDP-1 = {
