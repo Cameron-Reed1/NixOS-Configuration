@@ -49,11 +49,11 @@
       };
 
       general = {
-        gaps_in = 2;
-        gaps_out = 2;
+        gaps_in = 3;
+        gaps_out = 6;
         border_size = 2;
 
-        "col.active_border" = "rgba(00aaffee) rgba(00ffffee) -45deg";
+        "col.active_border" = "rgba(ff970aff) rgba(ff830aff) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
 
         layout = "dwindle";
@@ -124,6 +124,7 @@
         "$mod, Return, exec, $term"
         "$mod, B, exec, $browser"
         "$mod, E, killactive,"
+        "$mod, Q, exec, hyprctl kill"
 
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"

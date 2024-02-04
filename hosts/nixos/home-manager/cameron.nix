@@ -1,9 +1,11 @@
-{ lib, pkgs, inputs, config, osConfig, common_dir, ... }:
+{ lib, pkgs, inputs, config, osConfig, ... }:
 
 {
   imports = [
-    (common_dir + /users/cameron/home.nix)
+    (inputs.common_dir + /users/cameron/home.nix)
   ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.framer;
 
 
   home.stateVersion = "24.05";

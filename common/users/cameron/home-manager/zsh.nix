@@ -85,7 +85,7 @@ function set_prompt() {
 
 	local prefix=""
 	for i in $(seq 1 "''${#prefixes[@]}"); do
-		prefix+="%F{''${colors[$i]:-255}}''${prefixes[$i]}%F{255} "
+		prefix+="%F{''${colors[$i]:-255}}''${prefixes[$i]}%f "
 	done
 	
 	PROMPT="[''${prefix}%n@%m %1~]%(#.#.$) "
@@ -118,7 +118,7 @@ fi
 
     shellAliases = {
       grep = "grep --color=auto";
-      ls = "ls --color=auto";
+      ls = "eza --icons --group-directories-first";
 
       nv = "nvim";
       nvd = "nvim .";
