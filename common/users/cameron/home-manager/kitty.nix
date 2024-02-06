@@ -1,8 +1,8 @@
-{ pkgs, lib, osConfig, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 {
   programs.kitty = {
-    enable = (builtins.length osConfig.desktop) != 0;
+    enable = config.term == "kitty";
 
     settings = {
       background = "#333333";
@@ -14,4 +14,6 @@
       update_check_interval = 0;
     };
   };
+
+  runInTerm = if (config.term == "kitty") then "${pkgs.kitty}/bin/kitty" else lib.mkDefault "";
 }

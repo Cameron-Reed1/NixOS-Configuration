@@ -1,4 +1,4 @@
-{ pkgs, lib, osConfig, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 {
   config = lib.mkIf (builtins.elem "hyprland" osConfig.desktop) (
@@ -18,7 +18,7 @@
 
     settings = {
       "$mod" = "SUPER";
-      "$term" = "kitty";
+      "$term" = "${config.term}";
       "$browser" = "firefox";
       "$menu" = "dmenu_path | wmenu -p 'Run:' -l 10 | xargs hyprctl dispatch exec";
       
@@ -121,7 +121,7 @@
       ];
 
       bind = [
-        "$mod, Return, exec, $term"
+        "$mod, Return, exec, ${config.runInTerm} ${pkgs.tmux}"
         "$mod, B, exec, $browser"
         "$mod, E, killactive,"
         "$mod, Q, exec, hyprctl kill"

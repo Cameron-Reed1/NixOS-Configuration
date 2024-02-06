@@ -129,7 +129,7 @@
             car = "";
             default = ["" "" ""];
           };
-          on-click = "${config.terminal} pulsemixer";
+          on-click = "${config.runInTerm} ${pkgs.pulsemixer}";
         };
 
       };

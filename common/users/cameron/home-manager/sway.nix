@@ -8,7 +8,7 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      terminal = "${pkgs.kitty}/bin/kitty";
+      terminal = "${config.term}";
 
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.wmenu}/bin/wmenu -p 'Run:' -l 10 | ${pkgs.findutils}/bin/xargs swaymsg exec --";
 
@@ -53,7 +53,7 @@
         menu = config.wayland.windowManager.sway.config.menu;
       in lib.mkOptionDefault {
         "${mod}+c" = "mark --toggle caffeine";
-        "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        "${mod}+Return" = "exec ${config.runInTerm} ${pkgs.tmux}";
         "${mod}+n" = "exec ${pkgs.firefox}/bin/firefox";
         "${mod}+d" = "exec pkill wmenu || ${menu}";
         "${mod}+Shift+q" = "kill";

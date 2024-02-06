@@ -2,14 +2,14 @@
 
 with lib; {
   options = {
-    defaultTerminal = mkOption {
-      default = "kitty";
-      type = types.str;
+    term = mkOption {
+      default = "";
+      type = types.enum [ "" "kitty" "alacritty" ];
     };
 
-    terminal = mkOption {
-      default = "${pkgs.kitty}/bin/kitty";
-      type = types.path;
+    runInTerm = mkOption {
+      default = "";
+      type = types.str;
     };
   };
 }

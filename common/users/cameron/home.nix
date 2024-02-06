@@ -13,8 +13,11 @@
     ./home-manager/swaylock.nix
     ./home-manager/waybar.nix
 
+    ./home-manager/alacritty.nix
+    ./home-manager/kitty.nix
     ./home-manager/zsh.nix
     ./home-manager/nvim.nix
+    ./home-manager/tmux.nix
     ./home-manager/lf.nix
   ];
 
