@@ -31,4 +31,6 @@
   home.packages = with pkgs; [
     eza
   ];
+
+  term = "alacritty";
 }

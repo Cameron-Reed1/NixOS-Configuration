@@ -121,7 +121,7 @@
       ];
 
       bind = [
-        "$mod, Return, exec, ${config.runInTerm} ${pkgs.tmux}"
+        "$mod, Return, exec, ${config.runInTerm} ${pkgs.tmux}/bin/tmux"
         "$mod, B, exec, $browser"
         "$mod, E, killactive,"
         "$mod, Q, exec, hyprctl kill"

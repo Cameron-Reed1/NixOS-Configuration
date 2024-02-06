@@ -53,7 +53,7 @@
         menu = config.wayland.windowManager.sway.config.menu;
       in lib.mkOptionDefault {
         "${mod}+c" = "mark --toggle caffeine";
-        "${mod}+Return" = "exec ${config.runInTerm} ${pkgs.tmux}";
+        "${mod}+Return" = "exec ${config.runInTerm} ${pkgs.tmux}/bin/tmux";
         "${mod}+n" = "exec ${pkgs.firefox}/bin/firefox";
         "${mod}+d" = "exec pkill wmenu || ${menu}";
         "${mod}+Shift+q" = "kill";

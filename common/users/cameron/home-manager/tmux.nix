@@ -8,6 +8,8 @@
     keyMode = "vi";
     mouse = true;
 
+    sensibleOnTop = false;
+
     extraConfig = ''
 set -g prefix C-a
 set -g prefix2 C-k

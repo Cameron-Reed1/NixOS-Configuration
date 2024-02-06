@@ -2,7 +2,7 @@
 
 {
   programs.alacritty = {
-    enable = config.term == "alacritty";
+    enable = (config.term == "alacritty");
     
     settings = {
       window = {
@@ -10,13 +10,13 @@
         dynamic_padding = true;
       };
 
-      "colors.primary" = {
+      colors.primary = {
         foreground = "#cccccc";
         background = "#333333";
       };
 
       cursor = {
-        "style.blinking" = "On";
+        style.blinking = "On";
         blink_interval = 500;
         blink_timeout = 15;
       };

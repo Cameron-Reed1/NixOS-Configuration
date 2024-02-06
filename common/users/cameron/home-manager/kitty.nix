@@ -2,7 +2,7 @@
 
 {
   programs.kitty = {
-    enable = config.term == "kitty";
+    enable = (config.term == "kitty");
 
     settings = {
       background = "#333333";
