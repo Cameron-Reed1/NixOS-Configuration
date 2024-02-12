@@ -175,7 +175,7 @@
   services.xserver = {
     enable = false;
 
-    layout = "us";
+    xkb.layout = "us";
     libinput = {
       touchpad = {
         tapping = true;
