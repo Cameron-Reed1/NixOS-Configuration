@@ -48,6 +48,9 @@ key[Shift-Tab]="''${terminfo[kcbt]}"
 key[Control-Left]="''${terminfo[kLFT5]}"
 key[Control-Right]="''${terminfo[kRIT5]}"
 
+# Emacs bindings
+bindkey -e
+
 # setup key accordingly
 [[ -n "''${key[Home]}"      ]] && bindkey -- "''${key[Home]}"       beginning-of-line
 [[ -n "''${key[End]}"       ]] && bindkey -- "''${key[End]}"        end-of-line
@@ -114,6 +117,35 @@ if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh='kitty +kitten ssh'
     alias clear='printf "\033c"'
 fi
+
+
+BOOKMARKS_DIR="$HOME/bookmarks"
+mkdir -p "$BOOKMARKS_DIR"
+export CDPATH="$HOME:$BOOKMARKS_DIR"
+
+function bookmark() {
+    target="$(pwd)"
+    mark_name="''${1:-$(basename $(pwd))}"
+
+    if [ -e "$BOOKMARKS_DIR/$mark_name" ]; then
+        echo "Bookmark for $mark_name already exists"
+    else
+        ln -s "$target" "$BOOKMARKS_DIR/$mark_name"
+        echo "Created bookmark $mark_name to $target"
+    fi
+}
+
+function rmbookmark() {
+    if [ -z "$1" ]; then
+        echo "Usage: $0 [mark_name]"
+    else
+        if [ ! -L "$BOOKMARKS_DIR/$1" ]; then
+            echo "No bookmark with name $1"
+        else
+            rm "$BOOKMARKS_DIR/$1"
+        fi
+    fi
+}
     '';
 
     shellAliases = {
