@@ -19,6 +19,7 @@
     ./home-manager/nvim.nix
     ./home-manager/tmux.nix
     ./home-manager/lf.nix
+    ./home-manager/git.nix
   ];
 
   home.username = "cameron";
@@ -30,6 +31,7 @@
 
   home.packages = with pkgs; [
     eza
+    signal-desktop
   ];
 
   term = "alacritty";

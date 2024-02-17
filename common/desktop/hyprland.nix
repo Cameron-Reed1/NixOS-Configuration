@@ -15,6 +15,8 @@
     swaylock
     swayidle
     hyprpaper
+    imv
+    mpv
   ]);
 
   fonts.packages = with pkgs; [

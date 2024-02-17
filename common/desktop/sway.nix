@@ -14,6 +14,8 @@
       i3status
       brightnessctl
       wob
+      imv
+      mpv
     ];
   };
 
