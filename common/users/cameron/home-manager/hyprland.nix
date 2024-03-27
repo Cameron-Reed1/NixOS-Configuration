@@ -109,7 +109,7 @@
       };
 
       windowrulev2 = [
-        "nomaximizerequest, class:.*"
+        "suppressevent fullscreen maximize, class:.*"
       ];
 
       bindr = [
