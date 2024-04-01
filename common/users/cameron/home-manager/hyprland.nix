@@ -122,6 +122,7 @@
 
       bind = [
         "$mod, Return, exec, ${config.runInTerm} ${pkgs.tmux}/bin/tmux"
+        "$mod, backslash, exec, ${config.runInDangerTerm} ${pkgs.tmux}/bin/tmux new-session -e DANGER=1"
         "$mod, B, exec, $browser"
         "$mod, E, killactive,"
         "$mod, Q, exec, hyprctl kill"

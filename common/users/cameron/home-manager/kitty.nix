@@ -16,4 +16,5 @@
   };
 
   runInTerm = if (config.term == "kitty") then "${pkgs.kitty}/bin/kitty" else lib.mkDefault "";
+  runInDangerTerm = if (config.term == "kitty") then "${pkgs.kitty}/bin/kitty" else lib.mkDefault "";
 }

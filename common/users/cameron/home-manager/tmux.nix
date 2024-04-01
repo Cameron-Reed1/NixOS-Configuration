@@ -14,7 +14,7 @@
 
     extraConfig = ''
 set -g status-right '"#T"'
-set -g status-style 'bg=#262626 fg=#cccccc'
+set-hook -g session-created 'set -F status-style "#{?#{==:#{DANGER},},bg=#262626 fg=#cccccc,bg=#e45555 fg=#000000}"'
 set-hook -g window-linked 'set -F status "#{?#{==:#{session_windows},1},off,on}"'
 set-hook -g window-unlinked 'set -F status "#{?#{==:#{session_windows},1},off,on}"'
 

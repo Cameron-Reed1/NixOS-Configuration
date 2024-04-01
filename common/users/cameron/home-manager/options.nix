@@ -11,5 +11,10 @@ with lib; {
       default = "";
       type = types.str;
     };
+
+    runInDangerTerm = mkOption {
+      default = "";
+      type = types.str;
+    };
   };
 }

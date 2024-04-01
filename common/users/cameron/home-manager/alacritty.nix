@@ -28,4 +28,5 @@
   };
 
   runInTerm = if (config.term == "alacritty") then "${pkgs.alacritty}/bin/alacritty -e" else lib.mkDefault "";
+  runInDangerTerm = if (config.term == "alacritty") then "${pkgs.alacritty}/bin/alacritty -o colors.primary.background=\"'##663333'\" -o colors.primary.foreground=\"'##eeeeee'\" -T Danger -e" else lib.mkDefault "";
 }
