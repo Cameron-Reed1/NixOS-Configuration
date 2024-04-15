@@ -165,6 +165,8 @@ function rmbookmark() {
       x = "exit";
       ":q" = "exit";
       ":wq" = "exit";
+
+      lg = "nix-env --list-generations --profile /nix/var/nix/profiles/system";
     };
 
 
