@@ -148,8 +148,10 @@
   services.tailscale = {
     enable = true;
     openFirewall = true;
+    useRoutingFeatures = "client";
     extraUpFlags = [
       "--login-server=https://scale.cam123.dev:443"
+      "--accept-routes"
     ];
   };
 
