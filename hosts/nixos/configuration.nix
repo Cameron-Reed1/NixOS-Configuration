@@ -178,14 +178,15 @@
     enable = false;
 
     xkb.layout = "us";
-    libinput = {
-      touchpad = {
-        tapping = true;
-      };
-    };
-
     excludePackages = [ pkgs.xterm ];
   };
+
+  services.libinput = {
+    touchpad = {
+      tapping = true;
+    };
+  };
+
 
 
 

@@ -9,7 +9,7 @@
   
     settings = {
       mainBar = {
-        layer = "bottom";
+        layer = "top";
         position = "top";
   
         modules-left = [
