@@ -102,6 +102,51 @@
     openFirewall = true;
   };
 
+  security.acme.acceptTerms = true;
+  security.acme.certs."owl.cam123.dev" = {
+    dnsResolver = "1.1.1.1:53";
+    dnsProvider = "cloudflare";
+    email = "cameron@cam123.dev";
+    environmentFile = "/var/acme/secrets/.env";
+    extraDomainNames = [ "jelly.cam123.dev" ];
+  };
+  
+
+  services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "jelly.cam123.dev" = {
+        forceSSL = true;
+        useACMEHost = "owl.cam123.dev";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8096";
+          recommendedProxySettings = true;
+        };
+      };
+
+      "owl.cam123.dev" = {
+        forceSSL = true;
+        enableACME = true;
+        acmeRoot = null;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8080";
+          recommendedProxySettings = true;
+        };
+      };
+    };
+  };
+
+  virtualisation.oci-containers = {
+    backend = "docker";
+
+    containers.kitchenowl = {
+      image = "tombursch/kitchenowl:latest";
+      environmentFiles = [ /home/cameron/kitchenowl/.env ];
+      volumes = [ "/home/cameron/kitchenowl/data:/data" ];
+      ports = [ "8080:8080" ];
+    };
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
