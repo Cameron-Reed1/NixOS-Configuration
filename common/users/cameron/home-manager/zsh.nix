@@ -90,8 +90,15 @@ function set_prompt() {
 	for i in $(seq 1 "''${#prefixes[@]}"); do
 		prefix+="%F{''${colors[$i]:-255}}''${prefixes[$i]}%f "
 	done
+
+    local user="${USER_OVERRIDE:-%n}"
+    local host="@${HOST_OVERRIDE:-%m}"
+
+    if [ -z "${SSH_CONNECTION}" ]; then
+        host=""
+    fi
 	
-	PROMPT="[''${prefix}%n@%m %1~]%(#.#.$) "
+	PROMPT="[''${prefix}${user}${host} %1~]%(#.#.$) "
 }
 
 typeset -a precmd_functions
