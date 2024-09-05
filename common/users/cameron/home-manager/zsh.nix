@@ -91,14 +91,14 @@ function set_prompt() {
 		prefix+="%F{''${colors[$i]:-255}}''${prefixes[$i]}%f "
 	done
 
-    local user="${USER_OVERRIDE:-%n}"
-    local host="@${HOST_OVERRIDE:-%m}"
+    local user="''${USER_OVERRIDE:-%n}"
+    local host="@''${HOST_OVERRIDE:-%m}"
 
-    if [ -z "${SSH_CONNECTION}" ]; then
+    if [ -z "''${SSH_CONNECTION}" ]; then
         host=""
     fi
 	
-	PROMPT="[''${prefix}${user}${host} %1~]%(#.#.$) "
+	PROMPT="[''${prefix}''${user}''${host} %1~]%(#.#.''$) "
 }
 
 typeset -a precmd_functions

@@ -74,6 +74,7 @@
     ranger
     lf
     tmux
+    gcc
 
     # Temp
     makemkv
