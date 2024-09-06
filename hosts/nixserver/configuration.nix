@@ -109,7 +109,7 @@
     dnsProvider = "cloudflare";
     email = "cameron@cam123.dev";
     environmentFile = "/var/acme/secrets/.env";
-    extraDomainNames = [ "jelly.cam123.dev" ];
+    extraDomainNames = [ "jelly.cam123.dev" "todo.cam123.dev" ];
   };
   
 
@@ -134,6 +134,15 @@
           recommendedProxySettings = true;
         };
       };
+
+      "todo.cam123.dev" = {
+        forceSSL = true;
+        useACMEHost = "owl.cam123.dev";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8090";
+          recommendedProxySettings = true;
+        };
+      };
     };
   };
 
@@ -145,6 +154,22 @@
       environmentFiles = [ /home/cameron/kitchenowl/.env ];
       volumes = [ "/home/cameron/kitchenowl/data:/data" ];
       ports = [ "8080:8080" ];
+    };
+  };
+
+  systemd.services = {
+    todo-web = {
+      description = "Todo app";
+      after = [ "network.target" ];
+
+      serviceConfig = {
+        ExecStart = "/opt/todo/todo-web -a 127.0.0.1 -p 8090 --db /opt/todo/prod.db --static /opt/todo/static";
+        Type = "simple";
+        Restart = "always";
+      };
+
+      wantedBy = [ "default.target" ];
+      requiredBy = [ "network.target" ];
     };
   };
 
